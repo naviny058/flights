@@ -9,4 +9,8 @@ router
     AirplaneMiddleware.validateCreateRequest,
     AirplaneController.createAirplane)
 
+router
+  .delete('/:id',
+    AirplaneController.destroyAirplane,
+  )
 module.exports = router
