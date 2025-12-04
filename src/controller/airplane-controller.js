@@ -27,7 +27,21 @@ async function createAirplane(req, res) {
 
   }
 }
+async function getAirplanes(req, res) {
+  try {
+    const airplane = await AirplaneServices.getAirplanes()
+    SuccessResponse.data = airplane
+    return res.status(StatusCodes.OK)
+      .json(SuccessResponse)
+  } catch (error) {
+    ErrorResponse.error = error
+    console.log(error)
+    return res
+      .status(error.statusCode)
+      .json(ErrorResponse)
 
+  }
+}
 /*
  DELETE : /airplanes/:id
  req-body:{}
@@ -45,5 +59,6 @@ async function destroyAirplane(req, res) {
 }
 module.exports = {
   createAirplane,
+  getAirplanes,
   destroyAirplane
 }
