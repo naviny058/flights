@@ -1,3 +1,4 @@
+const { StatusCodes } = require('http-status-codes')
 const { Logger } = require('../config')
 
 class CrudRepository {
@@ -13,11 +14,17 @@ class CrudRepository {
     const response = await this.model.destroy({
       where: { id: data }
     })
+    if (!response) {
+      throw new AppError('Not able to fund the resource', StatusCodes.NOT_FOUND);
+    }
     return response
   }
 
   async get(data) {
     const response = await this.model.findByPk(data)
+    if (!response) {
+      throw new AppError('Not able to fund the resource', StatusCodes.NOT_FOUND);
+    }
     return response
   }
 
