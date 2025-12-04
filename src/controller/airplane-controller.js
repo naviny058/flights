@@ -30,6 +30,7 @@ async function createAirplane(req, res) {
 
 /*
  DELETE : /airplanes/:id
+ req-body:{}
 */
 
 async function destroyAirplane(req, res) {
