@@ -2,6 +2,11 @@ const { StatusCodes } = require('http-status-codes')
 const { AirplaneServices } = require('../services')
 const { SuccessResponse, ErrorResponse } = require('../utils/common')
 
+/*
+ POST : /airplanes
+ req-body {modelNumber:'airbus320',capacity:23}
+*/
+
 async function createAirplane(req, res) {
   try {
     const airplane = await AirplaneServices.createAirplane({
@@ -22,6 +27,10 @@ async function createAirplane(req, res) {
 
   }
 }
+
+/*
+ DELETE : /airplanes/:id
+*/
 
 async function destroyAirplane(req, res) {
   try {
