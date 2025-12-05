@@ -25,3 +25,12 @@ go to `src` write `cd src` and write
 
 ``` npx sequelize db:migrate ```
 - it migrate all the files inside the migrations folder to the database table its like version control of database
+
+``` npx sequelize migration:generate --name update-city-airport-association ```
+- it is use update the existing model (schema of a table)
+no model will create by using the above because it is use to update the model in db
+above cmd will create a new migration file and by using above file you can update your db
+
+### what ever change in migration folder(file) will give you a database level check
+and 
+### the model folder(file) will give you js level check
