@@ -8,7 +8,8 @@ async function createAirport(data) {
     const airport = await airportRepository.create(data)
     return airport;
   } catch (error) {
-    if (error.name == 'SequelizeValidationError') {
+    console.log('nav', error)
+    if (error.name == 'SequelizeValidationError' || error.name == 'SequelizeForeignKeyConstraintError') {
       let explanation = [];
       error.errors.forEach((err) => {
         explanation.push(err.message);
